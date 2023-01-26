@@ -1,0 +1,45 @@
+package com.empsatisfaction.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.empsatisfaction.entity.EmpEntity;
+
+@RestController
+@RequestMapping("/api")
+public class EmpController {
+	
+	
+	@PostMapping("/empsatisfactionindex")
+	public int getEmpSatisfactionIndex(@RequestBody EmpEntity empEntity) {
+		
+		boolean ques1=empEntity.isQues1();
+		boolean ques2=empEntity.isQues2();
+		String ques3=empEntity.getQues3();
+		int ques4=empEntity.getQues4();
+		
+		if(ques1 && ques2 && ques3.equals("yes") && ques4 < 2) {
+			return 5;
+		}
+		else if(ques1 && ques2 && ques3.equals("yes") && ques4 > 2) {
+			return 4;
+		}
+		else if(ques1 && ques2 && ques3.equals("no") && ques4 < 2) {
+			return 4;
+		}
+		else if(ques1 && !ques2 && ques3.equals("yes") && ques4 < 2) {
+			return 4;
+		}
+		else if(!ques1 && ques2 && ques3.equals("yes") && ques4 < 2) {
+			return 4;
+		}
+		else {
+			return 3;
+		}
+		
+	}
+
+}

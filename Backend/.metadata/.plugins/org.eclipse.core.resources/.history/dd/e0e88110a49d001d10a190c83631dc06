@@ -1,0 +1,29 @@
+package com.empsatisfaction.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.empsatisfaction.entity.EmpEntity;
+import com.empsatisfaction.service.EmpService;
+
+@CrossOrigin
+@RestController
+@RequestMapping("/api")
+public class EmpController {
+	
+	@Autowired
+	EmpService empService;
+	
+	
+	@PostMapping("/empsatisfactionindex")
+	public int getEmpSatisfactionIndex(@RequestBody EmpEntity empEntity) {
+		
+		return empService.calculateIndex(empEntity.getQues1(), empEntity.getQues2(), empEntity.getQues3(), empEntity.getQues4());
+		
+	}
+
+}

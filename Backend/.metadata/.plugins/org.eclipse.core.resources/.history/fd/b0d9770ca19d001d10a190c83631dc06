@@ -1,0 +1,5 @@
+package com.empsatisfaction.entity;
+
+public class EmpEntity {
+
+}

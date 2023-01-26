@@ -1,0 +1,35 @@
+package com.empsatisfaction.entity;
+
+public class EmpEntity {
+
+	private boolean ques1;
+	private boolean ques2;
+	private String ques3;
+	private int ques4;
+	public boolean isQues1() {
+		return ques1;
+	}
+	public void setQues1(boolean ques1) {
+		this.ques1 = ques1;
+	}
+	public boolean isQues2() {
+		return ques2;
+	}
+	public void setQues2(boolean ques2) {
+		this.ques2 = ques2;
+	}
+	public String getQues3() {
+		return ques3;
+	}
+	public void setQues3(String ques3) {
+		this.ques3 = ques3;
+	}
+	public int getQues4() {
+		return ques4;
+	}
+	public void setQues4(int ques4) {
+		this.ques4 = ques4;
+	}
+	
+	
+}
